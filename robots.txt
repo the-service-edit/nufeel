@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://nufeel.theserviceedit.com/sitemap.xml

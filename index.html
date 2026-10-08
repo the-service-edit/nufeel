@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0D4B3B" />
+<title>Nu-Feel Property Services · Mowing, Gardens &amp; Pressure Cleaning · Rockingham to Joondalup</title>
+<meta name="description" content="Mowing, hedges, trees, gutters, pressure cleaning, carpets and rubbish removal. Brothers Luke and Jake, based in Rockingham, working Mandurah to Joondalup. Text photos for a price." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  /* Layout: X Tiling editorial skeleton dressed in the Nu-Feel flyer system —
+     brand green / deep green / light grey panels, quarter-circle tile mosaic,
+     leaf-mark bullets, quarter-crop photos. Single committed light look. */
+  :root {
+    --green: #1EAA4E;        /* brand green: graphics, tiles, accents */
+    --green-text: #128A3C;   /* brand green dark enough to carry white text / sit on grey */
+    --deep: #0D4B3B;         /* deep green from the flyer pattern */
+    --deep-2: #0A3B2E;
+    --grey: #ECEDEB;         /* flyer panel grey */
+    --white: #FFFFFF;
+    --ink: #10251D;
+    --muted: #4E6159;
+    --line: rgba(16, 37, 29, 0.13);
+    --line-w: rgba(255, 255, 255, 0.22);
+
+    --f-display: "Lexend", "Avenir Next", "Segoe UI", Arial, sans-serif;
+    --f-body: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    --max: 1500px;
+    --gutter: clamp(1rem, 4vw, 3.5rem);
+    --section-y: clamp(4.5rem, 10vw, 9rem);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --r: 14px;
+    color-scheme: light;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; scroll-padding-top: 80px; }
+  body { font-family: var(--f-body); background: var(--white); color: var(--ink); font-size: 1.02rem; line-height: 1.55; overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+  ::selection { background: var(--green); color: var(--white); }
+  :focus-visible { outline: 3px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+  .skip { position: absolute; top: -100px; left: 1rem; background: var(--deep); color: var(--white); padding: .75rem 1rem; border-radius: 8px; z-index: 999; }
+  .skip:focus { top: 1rem; }
+
+  /* ---------- Type ---------- */
+  .h { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; line-height: .95; letter-spacing: -0.015em; text-wrap: balance; }
+  .eyebrow { display: inline-flex; align-items: center; gap: .55rem; font-family: var(--f-display); font-size: .78rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--green-text); }
+  .eyebrow svg { width: 18px; height: 18px; flex: none; }
+  .wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+  .section { padding-block: var(--section-y); }
+  .section--grey { background: var(--grey); }
+
+  /* ---------- Leaf mark (simplified from the Nu-Feel logo) ---------- */
+  .leaf { display: inline-block; width: 1em; height: 1em; color: var(--green); flex: none; }
+
+  /* ---------- Quarter-circle tile mosaic ---------- */
+  .mosaic { display: grid; gap: 0; }
+  .tile { position: relative; aspect-ratio: 1; background: var(--bg, var(--deep)); overflow: hidden; max-width: 100%; }
+  .tile::before { content: ''; position: absolute; inset: 0; background: var(--fg, var(--green)); }
+  .tile.q-tl::before { border-radius: 0 0 100% 0; }
+  .tile.q-tr::before { border-radius: 0 0 0 100%; }
+  .tile.q-bl::before { border-radius: 0 100% 0 0; }
+  .tile.q-br::before { border-radius: 100% 0 0 0; }
+  .tile.lens::before { border-radius: 0 100% 0 100%; }
+  .tile.lens2::before { border-radius: 100% 0 100% 0; }
+  .tile.half-t::before { inset: 0 0 50% 0; border-radius: 0 0 999px 999px; }
+  .tile.circle::before { inset: 0; border-radius: 50%; }
+  .tile.flat::before { display: none; }
+  /* photo tiles: real photo inside the shape, striped green fallback */
+  .tile.photo::before { display: none; }
+  .tile.photo .ph { position: absolute; inset: 0; border-radius: inherit; }
+  .tile.photo.q-tl .ph { border-radius: 0 0 100% 0; }
+  .tile.photo.q-br .ph { border-radius: 100% 0 0 0; }
+  .tile.photo.lens .ph { border-radius: 0 100% 0 100%; }
+
+  .ph {
+    position: relative; overflow: hidden; max-width: 100%;
+    background-color: var(--green-text);
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.09) 0 12%, transparent 12% 24%);
+  }
+  .ph::after { content: attr(data-label); position: absolute; left: 12%; right: 8%; bottom: 10%; font-family: var(--f-display); font-size: .62rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: rgba(255,255,255,.85); pointer-events: none; }
+  .ph:has(img)::after { display: none; }
+  .ph img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+
+  /* ---------- Reveal (only below-the-fold elements animate) ---------- */
+  .reveal { transition: opacity .9s var(--ease), transform .9s var(--ease); }
+  .reveal.pre { opacity: 0; transform: translateY(22px); }
+  .tile { transition: transform .6s var(--ease); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal.pre { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn { display: inline-flex; align-items: center; gap: .7rem; padding: 1.05rem 1.6rem; border-radius: 999px; border: 2px solid transparent; font-family: var(--f-display); font-size: .92rem; font-weight: 600; letter-spacing: .02em; white-space: nowrap; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease); }
+  .btn .arw { transition: transform .3s var(--ease); }
+  .btn:hover .arw { transform: translateX(4px); }
+  .btn--green { background: var(--green-text); color: var(--white); }
+  .btn--green:hover { background: var(--deep); }
+  .btn--line { color: var(--deep); border-color: var(--deep); }
+  .btn--line:hover { background: var(--deep); color: var(--white); }
+  .btn--white { background: var(--white); color: var(--deep); }
+  .btn--white:hover { background: var(--green); color: var(--white); }
+
+  /* ---------- Nav ---------- */
+  .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); padding: calc(.85rem + env(safe-area-inset-top, 0px)) var(--gutter) .85rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .logo { display: inline-flex; align-items: center; gap: .65rem; color: var(--green-text); }
+  .logo .leaf { width: 2.1rem; height: 2.1rem; }
+  .logo__txt { display: flex; flex-direction: column; line-height: 1; }
+  .logo__txt b { font-family: var(--f-display); font-weight: 800; font-size: 1.45rem; letter-spacing: .01em; }
+  .logo__txt small { font-family: var(--f-display); font-size: .52rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; margin-top: .25rem; color: var(--deep); }
+  .nav__right { display: flex; align-items: center; gap: 1.25rem; }
+  .nav__phone { font-family: var(--f-display); font-weight: 700; color: var(--deep); font-variant-numeric: tabular-nums; }
+  .nav__menu { display: flex; align-items: center; gap: .65rem; font-family: var(--f-display); font-size: .88rem; font-weight: 600; color: var(--deep); padding: .6rem .2rem; }
+  .burger { width: 24px; height: 12px; position: relative; display: inline-block; }
+  .burger::before, .burger::after { content: ''; position: absolute; left: 0; width: 100%; height: 2px; border-radius: 2px; background: currentColor; transition: transform .4s var(--ease); }
+  .burger::before { top: 0; } .burger::after { bottom: 0; }
+  @media (max-width: 640px) { .nav__phone { display: none; } .nav .btn { display: none; } }
+
+  .overlay { position: fixed; inset: 0; z-index: 200; background: var(--deep); color: var(--white); transform: translateY(-100%); transition: transform .7s var(--ease); display: flex; flex-direction: column; overflow-y: auto; }
+  .overlay.open { transform: none; }
+  .overlay__top { display: flex; justify-content: space-between; align-items: center; padding: calc(.85rem + env(safe-area-inset-top, 0px)) var(--gutter) .85rem; }
+  .overlay .logo { color: var(--white); }
+  .overlay .logo__txt small { color: var(--green); }
+  .overlay .nav__menu { color: var(--white); }
+  #menuClose .burger::before, #menuClose .burger::after { top: 50%; bottom: auto; }
+  #menuClose .burger::before { transform: rotate(45deg); }
+  #menuClose .burger::after { transform: rotate(-45deg); }
+  .overlay__nav { flex: 1; display: flex; flex-direction: column; justify-content: center; list-style: none; padding: 2.5rem var(--gutter); width: 100%; max-width: var(--max); margin-inline: auto; }
+  .overlay__link { display: flex; align-items: center; gap: 1rem; padding: .55rem 0; font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(2rem, 6.5vw, 5rem); line-height: 1.05; border-bottom: 1px solid var(--line-w); transition: padding-left .45s var(--ease), color .3s; }
+  .overlay__link .leaf { width: .55em; height: .55em; opacity: 0; transition: opacity .3s; }
+  .overlay__link:hover { padding-left: .75rem; color: var(--green); }
+  .overlay__link:hover .leaf { opacity: 1; }
+  .overlay__foot { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.25rem; padding: 1.75rem var(--gutter) calc(2.25rem + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line-w); }
+  .overlay__foot span:first-child { display: block; font-family: var(--f-display); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin-bottom: .3rem; }
+  body.locked { overflow: hidden; }
+
+  /* ---------- Hero ---------- */
+  .hero { background: var(--grey); padding-top: calc(5.5rem + env(safe-area-inset-top, 0px)); overflow: hidden; }
+  .hero__grid { display: grid; gap: clamp(2rem, 4vw, 4rem); align-items: center; padding-block: clamp(2.5rem, 6vw, 5rem) 0; }
+  @media (min-width: 1000px) { .hero__grid { grid-template-columns: 1.05fr 1fr; padding-bottom: clamp(2.5rem, 5vw, 4.5rem); } }
+  .hero__copy { display: flex; flex-direction: column; gap: 1.6rem; min-width: 0; }
+  .hero h1 { font-size: clamp(3rem, 7.6vw, 7.4rem); color: var(--deep); }
+  .hero h1 span { color: var(--green-text); }
+  .hero__sub { font-size: clamp(1.05rem, 1.3vw, 1.25rem); max-width: 42ch; color: var(--muted); }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: .7rem; }
+  .proof { display: flex; flex-wrap: wrap; gap: .6rem 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: .9rem; color: var(--muted); }
+  .proof span { display: inline-flex; align-items: center; gap: .45rem; }
+  .proof b { color: var(--deep); font-weight: 700; }
+
+  .hero__mosaic { grid-template-columns: repeat(4, 1fr); border-radius: var(--r); overflow: hidden; min-width: 0; }
+  .hero__mosaic { grid-auto-flow: dense; }
+  .tile.big { grid-column: span 2; grid-row: span 2; aspect-ratio: 1; }
+  .tile.photo.big .ph { border-radius: 100% 0 0 0; }
+  .ph img { object-position: var(--op, 50% 50%); }
+  @media (max-width: 999px) { .hero__mosaic { grid-template-columns: repeat(6, 1fr); border-radius: 0; margin-inline: calc(var(--gutter) * -1); } }
+
+  /* ---------- Section head ---------- */
+  .head { display: grid; gap: 1rem; margin-bottom: clamp(2.25rem, 4.5vw, 4rem); }
+  @media (min-width: 900px) { .head { grid-template-columns: 1fr 1.6fr; gap: 3rem; align-items: end; } }
+  .head h2 { font-size: clamp(2.3rem, 5.6vw, 5rem); color: var(--deep); }
+  .head p { color: var(--muted); max-width: 46ch; }
+
+  /* ---------- Services: Outdoor / Indoor / Extras ---------- */
+  .cats { display: grid; gap: 1.25rem; }
+  @media (min-width: 960px) { .cats { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+  .cat { border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+  .cat--out { background: var(--grey); color: var(--ink); }
+  .cat--in { background: var(--green-text); color: var(--white); }
+  .cat--ex { background: var(--deep); color: var(--white); }
+  .cat__body { padding: clamp(1.5rem, 2.6vw, 2.25rem); display: flex; flex-direction: column; gap: 1.25rem; flex: 1; }
+  .pill { align-self: flex-start; font-family: var(--f-display); font-weight: 700; font-size: 1.15rem; padding: .3rem .85rem; border-radius: 6px; background: var(--green-text); color: var(--white); }
+  .cat--in .pill { background: var(--white); color: var(--green-text); }
+  .cat--ex .pill { background: var(--green); color: var(--deep); }
+  .cat ul { list-style: none; display: grid; gap: .7rem; }
+  .cat li { display: flex; gap: .65rem; align-items: flex-start; font-size: 1.05rem; line-height: 1.35; }
+  .cat li .leaf { width: 1.05rem; height: 1.05rem; margin-top: .12rem; }
+  .cat li b { font-weight: 700; }
+  .cat--out li .leaf { color: var(--green-text); }
+  .cat--in li .leaf { color: var(--white); }
+  .cat--ex li .leaf { color: var(--green); }
+  .cat li small { display: block; font-size: .88rem; opacity: .8; margin-top: .2rem; }
+  .cat__media { display: grid; grid-template-columns: 1fr 1fr; }
+  .cat__media .tile.photo .ph { border-radius: 0; }
+  .cat__media .tile.photo.q-br .ph { border-radius: 100% 0 0 0; }
+  .cat__media .tile.photo.q-bl .ph { border-radius: 0 100% 0 0; }
+  .cat:hover .ph img { transform: scale(1.05); }
+  .cats__note { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; align-items: center; }
+  .cats__note p { color: var(--muted); max-width: 52ch; }
+
+  /* ---------- Who we work for ---------- */
+  .who { display: grid; gap: 1.25rem; }
+  @media (min-width: 900px) { .who { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+  .who__item { background: var(--white); border-radius: var(--r); padding: clamp(1.6rem, 2.8vw, 2.4rem); display: flex; flex-direction: column; gap: 1rem; min-width: 0; position: relative; overflow: hidden; }
+  .who__item::after { content: ''; position: absolute; right: -1px; top: -1px; width: 72px; height: 72px; background: var(--green); border-radius: 0 0 0 100%; }
+  .who__item:nth-child(2)::after { background: var(--deep); }
+  .who__item:nth-child(3)::after { background: var(--green-text); border-radius: 0 0 0 100%; }
+  .who__item .eyebrow { color: var(--muted); padding-right: 70px; }
+  .who__item h3 { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: clamp(1.6rem, 2.5vw, 2.2rem); line-height: 1; color: var(--deep); }
+  .who__item p { color: var(--muted); }
+  .who__item ul { list-style: none; display: grid; gap: .5rem; margin-top: auto; padding-top: .75rem; border-top: 1px solid var(--line); }
+  .who__item li { display: flex; gap: .55rem; align-items: center; font-size: .95rem; font-weight: 500; }
+  .who__cta { margin-top: 2rem; background: var(--deep); color: var(--white); border-radius: var(--r); padding: clamp(1.5rem, 3vw, 2.25rem); display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; align-items: center; justify-content: space-between; }
+  .who__cta p { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.15rem, 1.8vw, 1.5rem); line-height: 1.25; max-width: 34ch; }
+
+  /* ---------- Featured before / after ---------- */
+  .feature { background: var(--deep); color: var(--white); padding-block: var(--section-y); position: relative; overflow: hidden; }
+  .feature .eyebrow { color: var(--green); }
+  .feature__head { display: grid; gap: 1rem; margin-bottom: clamp(2rem, 4vw, 3rem); }
+  @media (min-width: 900px) { .feature__head { grid-template-columns: 1.4fr 1fr; align-items: end; gap: 3rem; } }
+  .feature h2 { font-size: clamp(2.4rem, 6vw, 5.5rem); margin-top: .75rem; }
+  .feature h2 span { color: var(--green); }
+  .feature__head p { color: rgba(255,255,255,.78); max-width: 44ch; }
+  .ba { position: relative; aspect-ratio: 16 / 9; max-width: 100%; border-radius: var(--r); overflow: hidden; user-select: none; touch-action: pan-y; }
+  @media (max-width: 640px) { .ba { aspect-ratio: 4 / 5; } }
+  .ba .ph { position: absolute; inset: 0; }
+  .ph--before { background-color: #6E5A44; background-image: radial-gradient(circle at 30% 40%, rgba(30,24,16,.5) 0 9%, transparent 10%), radial-gradient(circle at 72% 64%, rgba(30,24,16,.45) 0 12%, transparent 13%), repeating-linear-gradient(0deg, rgba(0,0,0,.18) 0 2px, transparent 2px 44px), repeating-linear-gradient(90deg, rgba(0,0,0,.18) 0 2px, transparent 2px 88px); }
+  .ph--after { background-color: #D9B98C; background-image: repeating-linear-gradient(0deg, rgba(0,0,0,.1) 0 2px, transparent 2px 44px), repeating-linear-gradient(90deg, rgba(0,0,0,.1) 0 2px, transparent 2px 88px); }
+  .ph--after::after { color: rgba(16,37,29,.7); }
+  .ba__after { clip-path: inset(0 0 0 var(--pos, 50%)); }
+  .ba__handle { position: absolute; top: 0; bottom: 0; left: var(--pos, 50%); width: 3px; background: var(--white); z-index: 4; pointer-events: none; transform: translateX(-1.5px); }
+  .ba__handle::after { content: '‹ ›'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 54px; height: 54px; border-radius: 50%; background: var(--green); color: var(--white); display: grid; place-items: center; font-family: var(--f-display); font-weight: 700; font-size: 1.05rem; box-shadow: 0 8px 26px rgba(0,0,0,.3); }
+  .ba__tag { position: absolute; top: 1rem; z-index: 4; font-family: var(--f-display); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: .45rem .8rem; border-radius: 6px; }
+  .ba__tag--l { left: 1rem; background: rgba(10,59,46,.85); color: var(--white); }
+  .ba__tag--r { right: 1rem; background: var(--green); color: var(--white); }
+  .ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 5; margin: 0; }
+  .ba input:focus-visible ~ .ba__handle::after { outline: 3px solid var(--white); outline-offset: 3px; }
+  .pair { display: grid; gap: .75rem; }
+  @media (min-width: 720px) { .pair { grid-template-columns: 1fr 1fr; gap: 1rem; } }
+  .pair__img { position: relative; margin: 0; border-radius: var(--r); overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; }
+  @media (min-width: 720px) { .pair__img { aspect-ratio: 1; } }
+  .pair__img .ph { position: absolute; inset: 0; }
+  .gal { display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-rows: clamp(150px, 22vw, 280px); grid-auto-flow: dense; gap: .75rem; }
+  @media (min-width: 900px) { .gal { grid-template-columns: repeat(4, 1fr); gap: 1rem; } }
+  .gal__item { position: relative; margin: 0; border-radius: var(--r); overflow: hidden; min-width: 0; }
+  .gal__item:nth-child(3n+1) { border-radius: var(--r) var(--r) var(--r) 999px; }
+  .gal__item:nth-child(4n+2) { border-radius: 999px var(--r) var(--r) var(--r); }
+  .gal__item .ph { position: absolute; inset: 0; }
+  .gal__item:hover .ph img { transform: scale(1.05); }
+  .gal__item figcaption { position: absolute; z-index: 2; right: .7rem; bottom: .7rem; background: rgba(10,59,46,.88); color: var(--white); font-family: var(--f-display); font-size: .72rem; font-weight: 600; letter-spacing: .06em; padding: .4rem .7rem; border-radius: 6px; }
+  .g-tall { grid-row: span 2; }
+  .g-wide { grid-column: span 2; }
+  .feature__details { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1.25rem 2rem; margin-top: clamp(1.75rem, 3.5vw, 3rem); }
+  .feature__details div { border-top: 2px solid var(--green); padding-top: 1rem; display: flex; flex-direction: column; gap: .3rem; }
+  .feature__details span:first-child { font-family: var(--f-display); font-size: .7rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+  .feature__details span:last-child { font-size: 1.05rem; font-weight: 600; }
+  .feature__quote { margin-top: clamp(2.25rem, 4.5vw, 4rem); font-family: var(--f-display); font-weight: 500; font-size: clamp(1.35rem, 2.6vw, 2.2rem); line-height: 1.25; max-width: 32ch; }
+  .feature__quote cite { display: block; margin-top: 1rem; font-family: var(--f-body); font-style: normal; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+
+  /* ---------- Process ---------- */
+  .steps { list-style: none; display: grid; gap: 1.25rem; }
+  @media (min-width: 760px) { .steps { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+  .step { background: var(--white); border-radius: var(--r); padding: clamp(1.5rem, 2.5vw, 2rem); display: flex; flex-direction: column; gap: .9rem; min-width: 0; }
+  .step__n { width: 3rem; height: 3rem; border-radius: 0 50% 50% 50%; background: var(--green-text); color: var(--white); display: grid; place-items: center; font-family: var(--f-display); font-weight: 800; font-size: 1.15rem; }
+  .step:nth-child(4) .step__n { background: var(--deep); }
+  .step h3 { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: 1.45rem; line-height: 1; color: var(--deep); }
+  .step p { color: var(--muted); font-size: .97rem; }
+
+  /* ---------- Coverage ---------- */
+  .cover { display: grid; gap: 2.5rem; }
+  @media (min-width: 900px) { .cover { grid-template-columns: 1fr 1.8fr; gap: 4rem; align-items: center; } }
+  .cover h2 { font-size: clamp(2.2rem, 4.8vw, 4.2rem); color: var(--deep); margin-top: .75rem; }
+  .cover p { margin-top: 1rem; color: var(--muted); }
+  .line { position: relative; display: grid; grid-template-columns: repeat(6, 1fr); gap: .5rem; }
+  .line::before { content: ''; position: absolute; top: 9px; left: 9px; right: 9px; height: 3px; background: var(--deep); border-radius: 3px; }
+  .stop { position: relative; display: flex; flex-direction: column; gap: .7rem; min-width: 0; }
+  .stop::before { content: ''; width: 21px; height: 21px; border-radius: 50%; background: var(--white); border: 3px solid var(--deep); position: relative; z-index: 1; }
+  .stop--base::before { background: var(--green); border-color: var(--green); box-shadow: 0 0 0 6px rgba(30,170,78,.22); }
+  .stop strong { font-family: var(--f-display); font-weight: 700; font-size: clamp(.95rem, 1.4vw, 1.2rem); line-height: 1.1; color: var(--deep); overflow-wrap: anywhere; }
+  .stop span { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .stop--base span { color: var(--green-text); font-weight: 700; }
+  .line__ends { grid-column: 1 / -1; display: flex; justify-content: space-between; margin-top: 1.25rem; font-family: var(--f-display); font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  @media (max-width: 640px) {
+    .line { grid-template-columns: 1fr; padding-left: 2.4rem; gap: 1.3rem; }
+    .line::before { top: 9px; bottom: 9px; left: 9px; right: auto; width: 3px; height: auto; }
+    .stop { flex-direction: row; align-items: baseline; gap: .8rem; }
+    .stop::before { position: absolute; left: -2.4rem; top: 0; }
+    .line__ends { display: none; }
+  }
+
+  /* ---------- Principles + reviews ---------- */
+  .why { display: grid; gap: 1.25rem; }
+  @media (min-width: 760px) { .why { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .why { grid-template-columns: repeat(4, 1fr); } }
+  .why__item { border-top: 3px solid var(--green); padding-top: 1.25rem; display: flex; flex-direction: column; gap: .6rem; min-width: 0; }
+  .why__item h3 { font-family: var(--f-display); font-weight: 700; font-size: 1.3rem; color: var(--deep); display: flex; align-items: center; gap: .55rem; }
+  .why__item p { color: var(--muted); }
+
+  .reviews { display: grid; gap: 1.25rem; margin-top: clamp(3.5rem, 7vw, 6rem); }
+  @media (min-width: 960px) { .reviews { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+  .review { background: var(--white); border-radius: var(--r); padding: clamp(1.6rem, 2.6vw, 2.25rem); display: flex; flex-direction: column; gap: 1.5rem; min-width: 0; }
+  .review blockquote { font-size: 1.08rem; line-height: 1.55; }
+  .review blockquote::before { content: '“'; display: block; font-family: var(--f-display); font-weight: 800; font-size: 3.5rem; line-height: .7; color: var(--green); margin-bottom: .5rem; }
+  .review figcaption { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: .75rem; flex-wrap: wrap; align-items: baseline; }
+  .review figcaption b { font-family: var(--f-display); font-weight: 700; color: var(--deep); }
+  .review figcaption span { font-size: .85rem; color: var(--muted); }
+  .reviews__src { margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; color: var(--muted); }
+  .reviews__src b { color: var(--deep); font-family: var(--f-display); }
+  .reviews__src a { color: var(--green-text); font-weight: 700; border-bottom: 2px solid currentColor; }
+
+  /* ---------- Contact ---------- */
+  .contact { background: var(--grey); padding-block: var(--section-y); }
+  .contact__grid { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
+  @media (min-width: 1000px) { .contact__grid { grid-template-columns: 1fr 1.25fr; gap: 4rem; align-items: start; } }
+  .contact h2 { font-size: clamp(2.6rem, 6.5vw, 5.8rem); color: var(--green-text); margin-top: .75rem; }
+  .contact h2 span { color: var(--deep); }
+  .contact__sub { margin-top: 1.25rem; color: var(--muted); max-width: 44ch; font-size: 1.08rem; }
+  .channels { margin-top: 2rem; display: grid; gap: .9rem; }
+  .channel { display: flex; align-items: center; gap: .9rem; min-width: 0; }
+  .channel__ic { width: 2.6rem; height: 2.6rem; flex: none; border-radius: 50%; background: var(--green-text); color: var(--white); display: grid; place-items: center; }
+  .channel__ic svg { width: 1.15rem; height: 1.15rem; }
+  .channel div { display: flex; flex-direction: column; min-width: 0; }
+  .channel small { font-family: var(--f-display); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .channel a, .channel span.v { font-family: var(--f-display); font-weight: 700; font-size: 1.1rem; color: var(--deep); overflow-wrap: anywhere; }
+  .channel--big a { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .channel a:hover { color: var(--green-text); }
+
+  .form { background: var(--white); border-radius: var(--r); padding: clamp(1.4rem, 3vw, 2.5rem); display: grid; gap: 1.1rem; min-width: 0; position: relative; overflow: hidden; }
+  .form::before { content: ''; position: absolute; right: 0; top: 0; width: 90px; height: 90px; background: var(--green); border-radius: 0 0 0 100%; }
+  .form__title { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; font-size: 1.35rem; color: var(--deep); padding-right: 90px; }
+  .row { display: grid; gap: 1.1rem; }
+  @media (min-width: 640px) { .row { grid-template-columns: 1fr 1fr; } }
+  .field { display: flex; flex-direction: column; gap: .4rem; min-width: 0; border: 0; }
+  .field label, .field legend { font-family: var(--f-display); font-size: .74rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--deep); }
+  .field legend { margin-bottom: .4rem; }
+  .field input, .field select, .field textarea { width: 100%; font: inherit; font-size: 1rem; color: var(--ink); background: var(--grey); border: 2px solid transparent; border-radius: 10px; padding: .85rem 1rem; transition: border-color .25s, background .25s; }
+  .field input::placeholder, .field textarea::placeholder { color: #7D8C85; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--green); background: var(--white); }
+  .field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--deep) 50%), linear-gradient(135deg, var(--deep) 50%, transparent 50%); background-position: calc(100% - 20px) 50%, calc(100% - 14px) 50%; background-size: 6px 6px; background-repeat: no-repeat; padding-right: 2.5rem; }
+  .field textarea { resize: vertical; min-height: 104px; }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .chip input { position: absolute; opacity: 0; pointer-events: none; }
+  .chip span { display: inline-block; padding: .6rem 1rem; border-radius: 999px; background: var(--grey); font-weight: 600; font-size: .92rem; cursor: pointer; border: 2px solid transparent; transition: background .25s, color .25s; }
+  .chip input:checked + span { background: var(--green-text); color: var(--white); }
+  .chip input:focus-visible + span { border-color: var(--deep); }
+  .upload { display: flex; flex-wrap: wrap; align-items: center; gap: .9rem; padding: 1rem; border: 2px dashed rgba(18,138,60,.45); border-radius: 10px; background: rgba(30,170,78,.06); }
+  .upload input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+  .upload__btn { display: inline-flex; align-items: center; gap: .5rem; padding: .7rem 1.1rem; border-radius: 999px; background: var(--deep); color: var(--white); font-family: var(--f-display); font-weight: 600; font-size: .9rem; cursor: pointer; }
+  .upload input:focus-visible + .upload__btn { outline: 3px solid var(--green); outline-offset: 3px; }
+  .upload__status { font-size: .9rem; color: var(--muted); }
+  .form__submit { justify-content: center; width: 100%; padding: 1.2rem 2rem; font-size: 1rem; margin-top: .4rem; }
+  .form__msg { font-weight: 600; color: var(--green-text); min-height: 1.4em; }
+  .form__msg.err { color: #A33A1E; }
+
+  /* ---------- Footer ---------- */
+  .footer { background: var(--deep-2); color: var(--white); overflow: hidden; }
+  .footer__band { grid-template-columns: repeat(16, 1fr); }
+  @media (max-width: 760px) { .footer__band { grid-template-columns: repeat(8, 1fr); } .footer__band .m-hide { display: none; } }
+  .footer__inner { padding: clamp(3rem, 6vw, 5rem) var(--gutter) calc(1.75rem + env(safe-area-inset-bottom, 0px)); max-width: var(--max); margin-inline: auto; }
+  .footer__top { display: grid; gap: 2.25rem; padding-bottom: clamp(2.25rem, 4vw, 3.5rem); border-bottom: 1px solid var(--line-w); }
+  @media (min-width: 900px) { .footer__top { grid-template-columns: 1.8fr 1fr 1fr 1fr; } }
+  .footer .logo { color: var(--white); }
+  .footer .logo__txt small { color: var(--green); }
+  .footer__tag { margin-top: 1.1rem; color: rgba(255,255,255,.7); max-width: 34ch; }
+  .footer__col { display: flex; flex-direction: column; gap: .55rem; }
+  .footer__col > span:first-child { font-family: var(--f-display); font-size: .7rem; letter-spacing: .16em; text-transform: uppercase; color: var(--green); margin-bottom: .3rem; }
+  .footer__col a, .footer__col span { color: rgba(255,255,255,.88); overflow-wrap: anywhere; }
+  .footer__col a:hover { color: var(--green); }
+  .footer__bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-top: 1.5rem; font-size: .82rem; color: rgba(255,255,255,.55); }
+
+  /* ---------- Sticky CTA ---------- */
+  .sticky { position: fixed; right: 1.25rem; bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px)); z-index: 90; display: flex; gap: .5rem; opacity: 0; pointer-events: none; transform: translateY(12px); transition: opacity .4s var(--ease), transform .4s var(--ease); }
+  .sticky.on { opacity: 1; pointer-events: auto; transform: none; }
+  .sticky a { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .9rem 1.3rem; border-radius: 999px; font-family: var(--f-display); font-size: .9rem; font-weight: 700; box-shadow: 0 8px 26px rgba(10,59,46,.28); white-space: nowrap; }
+  .sticky__call { background: var(--white); color: var(--deep); border: 2px solid var(--deep); }
+  .sticky__quote, .sticky__text { background: var(--green-text); color: var(--white); border: 2px solid var(--green-text); }
+  .sticky svg { width: 15px; height: 15px; }
+  .sticky__text { display: none !important; }
+  @media (max-width: 640px) {
+    .sticky { left: 1rem; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom, 0px)); }
+    .sticky a { flex: 1; padding-inline: .6rem; }
+    .sticky__quote { display: none !important; }
+    .sticky__text { display: inline-flex !important; }
+  }
+</style>
+
+<link rel="canonical" href="https://nufeel.theserviceedit.com/" />
+<meta name="robots" content="noindex" />
+<meta property="og:url" content="https://nufeel.theserviceedit.com/" />
+<meta property="og:image" content="https://nufeel.theserviceedit.com/images/after.jpg" />
+<meta property="og:title" content="Nu-Feel Property Services" />
+<meta property="og:description" content="Mowing, hedges, trees, gutters, pressure cleaning and rubbish removal. Brothers Luke and Jake, Rockingham. Text photos for a price." />
+<meta property="og:type" content="website" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Nu-Feel Property Services",
+  "description": "Lawn care, garden maintenance, tree trimming and removals, weed control, irrigation repair, tile and grout, carpet and oven cleaning, high pressure cleaning, gutter and window cleaning, insurance clean-ups and waste removal.",
+  "telephone": "+61432036898",
+  "email": "nufeelps@outlook.com",
+  "address": {"@type": "PostalAddress", "addressLocality": "Rockingham", "addressRegion": "WA", "postalCode": "6168", "addressCountry": "AU"},
+  "areaServed": ["Mandurah", "Rockingham", "Armadale", "Applecross", "Perth", "Joondalup"],
+  "sameAs": ["https://www.facebook.com/nufeelpropertyservices/", "https://www.instagram.com/nufeelps/"]
+}
+</script>
+</head>
+<body>
+<!-- Leaf mark symbol (simplified from the Nu-Feel logo; swap for the real SVG when supplied) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leaf" viewBox="0 0 48 48">
+    <path fill="currentColor" d="M24 3c5.5 4.6 7.6 10.4 6.4 16.6C29.6 23.6 27.3 27 24 29.6c-3.3-2.6-5.6-6-6.4-10C16.4 13.4 18.5 7.6 24 3Z"/>
+    <path fill="currentColor" d="M3 17.5c7-.9 13 1.4 16.9 6.4 2.1 2.7 3.1 5.8 3.1 9.2v9.4c-3.6-.2-7-1.6-9.9-4.1C7.6 33.7 3.9 26.4 3 17.5Z"/>
+    <path fill="currentColor" d="M45 17.5c-.9 8.9-4.6 16.2-10.1 20.9-2.9 2.5-6.3 3.9-9.9 4.1v-9.4c0-3.4 1-6.5 3.1-9.2 3.9-5 9.9-7.3 16.9-6.4Z"/>
+  </symbol>
+</svg>
+
+<a href="#main" class="skip">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="logo" aria-label="Nu-Feel Property Services home">
+    <svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>
+    <span class="logo__txt"><b>NU-FEEL</b><small>Property Services</small></span>
+  </a>
+  <div class="nav__right">
+    <a class="nav__phone" href="tel:+61432036898">0432 036 898</a>
+    <a class="btn btn--green" href="#quote" style="padding:.75rem 1.2rem">Get a price</a>
+    <button class="nav__menu" id="menuOpen" aria-controls="overlay" aria-expanded="false"><span>Menu</span><span class="burger" aria-hidden="true"></span></button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Main menu" aria-hidden="true">
+  <div class="overlay__top">
+    <span class="logo"><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span class="logo__txt"><b>NU-FEEL</b><small>Property Services</small></span></span>
+    <button class="nav__menu" id="menuClose"><span>Close</span><span class="burger" aria-hidden="true"></span></button>
+  </div>
+  <ul class="overlay__nav">
+    <li><a class="overlay__link" href="#services"><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Services</a></li>
+    <li><a class="overlay__link" href="#who"><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Who we work for</a></li>
+    <li><a class="overlay__link" href="#gallery"><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Recent work</a></li>
+    <li><a class="overlay__link" href="#area"><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Where we work</a></li>
+    <li><a class="overlay__link" href="#quote"><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Get in touch</a></li>
+  </ul>
+  <div class="overlay__foot">
+    <div><span>Call or text Luke</span><a href="tel:+61432036898">0432 036 898</a></div>
+    <div><span>Email</span><a href="mailto:nufeelps@outlook.com">NuFeelPS@outlook.com</a></div>
+    <div><span>Instagram</span><a href="https://www.instagram.com/nufeelps/" target="_blank" rel="noopener">@NuFeelPS</a></div>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top" aria-label="Introduction">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>Mandurah to Joondalup</span>
+        <h1 class="h">The yard jobs you keep <span>putting off.</span></h1>
+        <p class="hero__sub">Long grass, hedges over the path, gutters full of leaves, and the pile of green waste down the side of the house. Brothers Luke and Jake, based in Rockingham. Text Luke a few photos and he’ll send back a price.</p>
+        <div class="hero__ctas">
+          <a href="#quote" class="btn btn--green"><span>Send Luke your photos</span><span class="arw" aria-hidden="true">→</span></a>
+          <a href="tel:+61432036898" class="btn btn--line"><span>Call 0432 036 898</span></a>
+        </div>
+        <div class="proof">
+          <span><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><b>10+ years</b> on the tools</span>
+          <span><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><b>6 of 6</b> Facebook reviews recommend</span>
+          <span><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><b>Priced from photos</b>, no visit needed</span>
+        </div>
+      </div>
+
+      <div class="mosaic hero__mosaic" aria-hidden="true">
+        <div class="tile q-tl" style="--bg:var(--white);--fg:var(--deep)"></div>
+        <div class="tile photo big" style="--bg:var(--grey)"><div class="ph" data-label="Luke on the mower"><img src="images/hero-luke.jpg" alt="" /></div></div>
+        <div class="tile q-bl" style="--bg:var(--deep);--fg:var(--green)"></div>
+        <div class="tile q-tr" style="--bg:var(--green);--fg:var(--deep)"></div>
+        <div class="tile circle" style="--bg:var(--deep);--fg:var(--white)"></div>
+        <div class="tile lens2" style="--bg:var(--white);--fg:var(--green)"></div>
+        <div class="tile photo lens" style="--bg:var(--white)"><div class="ph" data-label="Paving"><img src="images/hero-paving.jpg" alt="" /></div></div>
+        <div class="tile q-br" style="--bg:var(--deep);--fg:var(--green)"></div>
+        <div class="tile half-t" style="--bg:var(--white);--fg:var(--deep)"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section class="section" id="services" aria-label="Services">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>Services</span></div>
+        <div>
+          <h2 class="h">Most of it happens outside.</h2>
+          <p style="margin-top:1rem">Some of it doesn’t. Here’s the full list.</p>
+        </div>
+      </div>
+
+      <div class="cats">
+        <article class="cat cat--out reveal">
+          <div class="cat__body">
+            <h3 class="pill">Outdoor</h3>
+            <ul>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Lawn care</b> &amp; maintenance</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Ride-on</b> mowing</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Garden</b> maintenance</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Tree trimming</b> &amp; removals</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Weed</b> control</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Mulch &amp; stone</b> applications</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Plant &amp; soil</b> applications</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Light irrigation</b> repair</span></li>
+            </ul>
+          </div>
+          <div class="cat__media">
+            <div class="tile q-tl" style="--bg:var(--grey);--fg:var(--green)"></div>
+            <div class="tile photo q-br" style="--bg:var(--grey)"><div class="ph" data-label="Garden"><img src="images/svc-outdoor.jpg" alt="Clipped topiary and hedges along a paved driveway" loading="lazy" /></div></div>
+          </div>
+        </article>
+
+        <article class="cat cat--in reveal">
+          <div class="cat__body">
+            <h3 class="pill">Indoor</h3>
+            <ul>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Tile &amp; grout</b> cleaning<small>Scrubbed back to the colour it was when the tiles went down.</small></span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Carpet</b> cleaning<small>Before the final inspection, not after the bond dispute.</small></span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Oven</b> cleaning<small>The job nobody wants at a vacate.</small></span></li>
+            </ul>
+          </div>
+          <div class="cat__media">
+            <div class="tile q-bl" style="--bg:var(--green-text);--fg:var(--deep)"></div>
+            <div class="tile lens" style="--bg:var(--green-text);--fg:var(--white)"></div>
+          </div>
+        </article>
+
+        <article class="cat cat--ex reveal">
+          <div class="cat__body">
+            <h3 class="pill">Extras</h3>
+            <ul>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>High pressure</b> cleaning<small>Driveways, brick, limestone and roofs.</small></span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Full insurance</b> clean-ups</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Gutter</b> cleaning</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Window</b> cleaning</span></li>
+              <li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span><b>Rubbish &amp; waste</b> removal</span></li>
+            </ul>
+          </div>
+          <div class="cat__media">
+            <div class="tile q-tr" style="--bg:var(--deep);--fg:var(--green)"></div>
+            <div class="tile photo q-br" style="--bg:var(--deep)"><div class="ph" data-label="Paving"><img src="images/svc-extras.jpg" alt="Freshly pressure cleaned terracotta paving" loading="lazy" /></div></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="cats__note reveal">
+        <p>Not on the list? Send a photo and ask. If it’s on the block, there’s a fair chance we do it.</p>
+        <a href="#quote" class="btn btn--line"><span>Ask about a job</span><span class="arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHO ============ -->
+  <section class="section section--grey" id="who" aria-label="Who we work for">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>Who we work for</span></div>
+        <h2 class="h">Homeowners, landlords and strata.</h2>
+      </div>
+
+      <div class="who">
+        <div class="who__item reveal">
+          <span class="eyebrow">Homeowners</span>
+          <h3>The block got away from you.</h3>
+          <p>Long grass, overgrown hedges, a tree hanging over the roof. We sort it in one visit, or come back on a regular round so it never gets that far again.</p>
+          <ul><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Regular mowing &amp; gardening</li><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Pressure cleaning &amp; gutters</li><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Big clean-ups &amp; green waste</li></ul>
+        </div>
+        <div class="who__item reveal">
+          <span class="eyebrow">Landlords, tenants &amp; property managers</span>
+          <h3>Before the final inspection.</h3>
+          <p>Garden, gutters, carpets, oven and the rubbish out the back, all done in one booking. Tenants, landlords and property managers use us for vacates.</p>
+          <ul><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Vacate &amp; end-of-lease clean-ups</li><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Carpets, ovens, tile &amp; grout</li><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Rubbish &amp; junk removal</li></ul>
+        </div>
+        <div class="who__item reveal">
+          <span class="eyebrow">Strata, commercial &amp; insurance</span>
+          <h3>Common areas that stay tidy.</h3>
+          <p>Scheduled mowing, verges and garden beds for strata and commercial sites, plus full insurance clean-ups. You deal with Luke every time.</p>
+          <ul><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Ride-on mowing &amp; verges</li><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Common-area gardens &amp; irrigation</li><li><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg>Full insurance clean-ups</li></ul>
+        </div>
+      </div>
+
+      <div class="who__cta reveal">
+        <p>Look after more than one property? Ask Luke about a regular round.</p>
+        <a href="#quote" class="btn btn--white"><span>Ask about a regular round</span><span class="arw" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURED: BEFORE / AFTER ============ -->
+  <section class="feature" id="work" aria-label="Before and after">
+    <div class="wrap">
+      <div class="feature__head reveal">
+        <div>
+          <span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>Before &amp; after</span>
+          <h2 class="h">Dead verge, <span>back to green.</span></h2>
+        </div>
+        <p>This verge had dried out to sand and a few runners. The right-hand photo is the same verge afterwards, with the same kerb, wall and yuccas.</p>
+      </div>
+
+      <div class="pair reveal">
+        <figure class="pair__img">
+          <div class="ph"><img src="images/before.jpg" alt="Front verge before: dry, patchy, mostly dirt along a curved kerb" loading="lazy" /></div>
+          <figcaption class="ba__tag ba__tag--l">Before</figcaption>
+        </figure>
+        <figure class="pair__img">
+          <div class="ph"><img src="images/after.jpg" alt="The same verge after: thick green lawn with a clean kerb edge" loading="lazy" /></div>
+          <figcaption class="ba__tag ba__tag--r">After</figcaption>
+        </figure>
+      </div>
+
+      <div class="feature__details reveal">
+        <div><span>Service</span><span>Lawn care &amp; maintenance</span></div>
+        <div><span>Site</span><span>Front verge</span></div>
+        <div><span>Result</span><span>Full lawn coverage</span></div>
+        <div><span>Finish</span><span>Edged &amp; cleared</span></div>
+      </div>
+
+      <blockquote class="feature__quote reveal">Above and beyond the scope of the job, with extreme attention to detail.<cite>Liam D. · paraphrased from his Facebook review</cite></blockquote>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section" id="gallery" aria-label="Recent work">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>Recent work</span></div>
+        <div>
+          <h2 class="h">From the crew’s phones.</h2>
+          <p style="margin-top:1rem">No stock photos. Every one of these is a Nu-Feel job.</p>
+        </div>
+      </div>
+      <div class="gal">
+        <figure class="gal__item g-tall reveal"><div class="ph"><img src="images/work-topiary.jpg" alt="Shaped topiary and clipped hedges in a front garden" loading="lazy" /></div><figcaption>Topiary &amp; hedging</figcaption></figure>
+        <figure class="gal__item reveal"><div class="ph"><img src="images/work-courtyard.jpg" alt="Courtyard garden with timber deck and planting" loading="lazy" /></div><figcaption>Courtyard garden</figcaption></figure>
+        <figure class="gal__item reveal"><div class="ph"><img src="images/work-lighting.jpg" alt="Row of pencil pines along a fence, lit at night" loading="lazy" /></div><figcaption>Front garden at night</figcaption></figure>
+        <figure class="gal__item g-wide reveal"><div class="ph"><img src="images/work-gardens.jpg" alt="Large formal garden with clipped hedges and lawn" loading="lazy" /></div><figcaption>Formal gardens</figcaption></figure>
+        <figure class="gal__item reveal"><div class="ph"><img src="images/work-entry.jpg" alt="Narrow entry path with green wall and low hedge" loading="lazy" /></div><figcaption>Entry planting</figcaption></figure>
+        <figure class="gal__item reveal"><div class="ph"><img src="images/work-hedge.jpg" alt="Neatly trimmed hedge with the Nu-Feel ute parked behind" loading="lazy" /></div><figcaption>Hedge trimming</figcaption></figure>
+        <figure class="gal__item g-wide reveal"><div class="ph"><img src="images/work-landscape.jpg" alt="Paved courtyard with fresh garden beds and succulents" loading="lazy" /></div><figcaption>Garden beds</figcaption></figure>
+        <figure class="gal__item reveal"><div class="ph"><img src="images/work-verge.jpg" alt="Striped lawn verge along a Colorbond fence" loading="lazy" /></div><figcaption>Verge mowing</figcaption></figure>
+        <figure class="gal__item reveal"><div class="ph"><img src="images/work-rideon.jpg" alt="Red ride-on mower on a large block" loading="lazy" /></div><figcaption>Ride-on mowing</figcaption></figure>
+      </div>
+      <div class="reviews__src reveal" style="margin-top:1.5rem">
+        <span>More on Facebook and Instagram</span>
+        <a href="https://www.facebook.com/nufeelpropertyservices/photos" target="_blank" rel="noopener">See all photos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROCESS ============ -->
+  <section class="section section--grey" id="process" aria-label="How it works">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>How it works</span></div>
+        <div>
+          <h2 class="h">How to get a price.</h2>
+          <p style="margin-top:1rem">Most jobs can be priced from photos, so you don’t have to wait in for someone to come and look.</p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li class="step reveal"><span class="step__n">1</span><h3>Take photos</h3><p>Of the lawn, the hedge, the gutters, whatever needs doing. Text them to 0432 036 898 or add them to the form below.</p></li>
+        <li class="step reveal"><span class="step__n">2</span><h3>Get a price</h3><p>Luke looks at the photos and sends you a price. If he can’t tell from the photos, he’ll come out and have a look.</p></li>
+        <li class="step reveal"><span class="step__n">3</span><h3>Pick a day</h3><p>Book it once, or put it on a regular round. You don’t need to be home for outdoor jobs.</p></li>
+        <li class="step reveal"><span class="step__n">4</span><h3>Cleared away</h3><p>Clippings, branches and rubbish go on the trailer and leave with us.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ COVERAGE ============ -->
+  <section class="section section--grey" id="area" aria-label="Where we work">
+    <div class="wrap cover">
+      <div class="reveal">
+        <span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>Where we work</span>
+        <h2 class="h">Mandurah to Joondalup.</h2>
+        <p>We’re based in Rockingham and drive the coast most days. Further out? Ask anyway.</p>
+      </div>
+      <div class="line reveal" aria-label="Service area from south to north">
+        <div class="stop"><strong>Mandurah</strong><span>32.53° S</span></div>
+        <div class="stop stop--base"><strong>Rockingham</strong><span>Base</span></div>
+        <div class="stop"><strong>Armadale</strong><span>32.15° S</span></div>
+        <div class="stop"><strong>Applecross</strong><span>32.01° S</span></div>
+        <div class="stop"><strong>Perth</strong><span>31.95° S</span></div>
+        <div class="stop"><strong>Joondalup</strong><span>31.74° S</span></div>
+        <div class="line__ends"><span>South</span><span>North</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY + REVIEWS ============ -->
+  <section class="section" aria-label="Why Nu-Feel and reviews">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>From the reviews</span></div>
+        <h2 class="h">Six reviews, the same few points.</h2>
+      </div>
+      <div class="why">
+        <div class="why__item reveal"><h3>Turned up on time</h3><p>And worked until the job was done, not until the clock said so.</p></div>
+        <div class="why__item reveal"><h3>Cleaned up after</h3><p>The paving gets swept and the green waste goes with us.</p></div>
+        <div class="why__item reveal"><h3>Tips to keep it that way</h3><p>Ask Luke how to keep a lawn or hedge looking right between visits. He’ll tell you.</p></div>
+        <div class="why__item reveal"><h3>The same two faces</h3><p>Luke quotes the job and does it, usually with his brother Jake.</p></div>
+      </div>
+
+      <div class="reviews">
+        <figure class="review reveal">
+          <blockquote>I recently had Luke and Jake come around to clean my large paving area, what a difference it made. They were on time, hard working and got the job done in excellent time, also made the effort to clean up after themselves. I would recommend anyone looking to get any kind of maintenance around the home or business done to call Nu-Feel Property Services. 5 stars.</blockquote>
+          <figcaption><b>Ben D.</b><span>Pressure cleaning</span></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <blockquote>Luke and his crew went above and beyond the scope of what was required for the job. Giving advice and tips for how to maintain the garden longer and paying extreme attention to detail. No doubt I’ll be using Luke’s service regularly to maintain my garden. Can’t recommend Luke’s service enough.</blockquote>
+          <figcaption><b>Liam D.</b><span>Garden maintenance</span></figcaption>
+        </figure>
+        <figure class="review reveal">
+          <blockquote>Luke and his brother Jake took a lot of care over cleaning our tile grout. We were delighted to find these 2 young men very courteous to deal with. A rarity these days.</blockquote>
+          <figcaption><b>Anna H.</b><span>Tile &amp; grout cleaning</span></figcaption>
+        </figure>
+      </div>
+      <div class="reviews__src reveal">
+        <span><b>100% recommend</b> on Facebook</span>
+        <a href="https://www.facebook.com/nufeelpropertyservices/reviews" target="_blank" rel="noopener">Read all reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="quote" aria-label="Get in touch">
+    <div class="wrap contact__grid">
+      <div class="reveal">
+        <span class="eyebrow"><svg aria-hidden="true"><use href="#leaf"/></svg>Get in touch</span>
+        <h2 class="h">Text Luke <span>a few photos.</span></h2>
+        <p class="contact__sub">Or fill this in and attach them. You’ll get a price back, usually without anyone needing to come out first.</p>
+
+        <div class="channels">
+          <div class="channel channel--big">
+            <span class="channel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <div><small>Call or text Luke</small><a href="tel:+61432036898">0432 036 898</a></div>
+          </div>
+          <div class="channel">
+            <span class="channel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <div><small>Email</small><a href="mailto:nufeelps@outlook.com">NuFeelPS@outlook.com</a></div>
+          </div>
+          <div class="channel">
+            <span class="channel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+            <div><small>Instagram</small><a href="https://www.instagram.com/nufeelps/" target="_blank" rel="noopener">@NuFeelPS</a></div>
+          </div>
+          <div class="channel">
+            <span class="channel__ic"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v7h4v-7h3l.5-4h-3.5V9c0-.6.4-1 1-1Z"/></svg></span>
+            <div><small>Facebook</small><a href="https://www.facebook.com/nufeelpropertyservices/" target="_blank" rel="noopener">/NuFeelPropertyServices</a></div>
+          </div>
+          <div class="channel">
+            <span class="channel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <div><small>Based in</small><span class="v">Rockingham, WA 6168</span></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="form reveal" id="quoteForm" novalidate>
+        <p class="form__title">Ask for a price</p>
+        <div class="row">
+          <div class="field"><label for="q-name">Name</label><input id="q-name" name="name" type="text" autocomplete="name" required /></div>
+          <div class="field"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required /></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" autocomplete="email" /></div>
+          <div class="field"><label for="q-suburb">Suburb</label><input id="q-suburb" name="suburb" type="text" placeholder="e.g. Baldivis" /></div>
+        </div>
+        <fieldset class="field">
+          <legend>Property type</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="type" id="t-home" value="Home" checked /><span>Home</span></label>
+            <label class="chip"><input type="radio" name="type" id="t-rental" value="Rental / vacate" /><span>Rental / vacate</span></label>
+            <label class="chip"><input type="radio" name="type" id="t-strata" value="Strata" /><span>Strata</span></label>
+            <label class="chip"><input type="radio" name="type" id="t-comm" value="Commercial" /><span>Commercial</span></label>
+            <label class="chip"><input type="radio" name="type" id="t-ins" value="Insurance" /><span>Insurance</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="q-service">Main service</label>
+          <select id="q-service" name="service">
+            <option value="">Select…</option>
+            <optgroup label="Outdoor"><option>Lawn care &amp; mowing</option><option>Ride-on mowing</option><option>Garden maintenance</option><option>Tree trimming &amp; removal</option><option>Weed control</option><option>Mulch, stone, plants &amp; soil</option><option>Irrigation repair</option></optgroup>
+            <optgroup label="Indoor"><option>Tile &amp; grout cleaning</option><option>Carpet cleaning</option><option>Oven cleaning</option></optgroup>
+            <optgroup label="Extras"><option>High pressure cleaning</option><option>Insurance clean-up</option><option>Gutter cleaning</option><option>Window cleaning</option><option>Rubbish &amp; waste removal</option></optgroup>
+            <option>A bit of everything</option>
+          </select>
+        </div>
+        <div class="field"><label for="q-msg">What needs doing</label><textarea id="q-msg" name="message" rows="3" placeholder="Front and back lawn, the hedge along the fence, and the driveway’s gone black."></textarea></div>
+        <div class="field">
+          <span class="field label" style="font-family:var(--f-display);font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--deep)">Photos</span>
+          <div class="upload">
+            <input id="q-photos" name="photos" type="file" accept="image/*" multiple />
+            <label for="q-photos" class="upload__btn">+ Add photos</label>
+            <span class="upload__status" id="photoStatus">Two or three is plenty</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn--green form__submit"><span>Send to Luke</span><span class="arw" aria-hidden="true">→</span></button>
+        <p class="form__msg" id="formMsg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="mosaic footer__band" aria-hidden="true">
+    <div class="tile q-br" style="--bg:var(--deep-2);--fg:var(--green)"></div>
+    <div class="tile lens" style="--bg:var(--green);--fg:var(--white)"></div>
+    <div class="tile q-tl" style="--bg:var(--white);--fg:var(--deep)"></div>
+    <div class="tile circle" style="--bg:var(--deep);--fg:var(--green)"></div>
+    <div class="tile q-tr" style="--bg:var(--green);--fg:var(--deep)"></div>
+    <div class="tile lens2" style="--bg:var(--deep-2);--fg:var(--white)"></div>
+    <div class="tile q-bl" style="--bg:var(--white);--fg:var(--green)"></div>
+    <div class="tile half-t" style="--bg:var(--green);--fg:var(--deep)"></div>
+    <div class="tile q-br m-hide" style="--bg:var(--deep);--fg:var(--white)"></div>
+    <div class="tile lens m-hide" style="--bg:var(--white);--fg:var(--green)"></div>
+    <div class="tile q-tl m-hide" style="--bg:var(--green);--fg:var(--deep-2)"></div>
+    <div class="tile circle m-hide" style="--bg:var(--deep-2);--fg:var(--green)"></div>
+    <div class="tile q-tr m-hide" style="--bg:var(--deep);--fg:var(--white)"></div>
+    <div class="tile lens2 m-hide" style="--bg:var(--green);--fg:var(--white)"></div>
+    <div class="tile q-bl m-hide" style="--bg:var(--white);--fg:var(--deep)"></div>
+    <div class="tile q-br m-hide" style="--bg:var(--deep-2);--fg:var(--green)"></div>
+  </div>
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <span class="logo"><svg class="leaf" aria-hidden="true"><use href="#leaf"/></svg><span class="logo__txt"><b>NU-FEEL</b><small>Property Services</small></span></span>
+        <p class="footer__tag">Lawns, hedges, trees, gutters, paving and the rest. Based in Rockingham, working Mandurah to Joondalup.</p>
+      </div>
+      <nav class="footer__col" aria-label="Footer site">
+        <span>Site</span><a href="#services">Services</a><a href="#who">Who we work for</a><a href="#gallery">Recent work</a><a href="#process">How it works</a>
+      </nav>
+      <div class="footer__col">
+        <span>Get in touch</span><a href="tel:+61432036898">0432 036 898</a><a href="mailto:nufeelps@outlook.com">NuFeelPS@outlook.com</a><a href="https://www.instagram.com/nufeelps/" target="_blank" rel="noopener">@NuFeelPS</a><a href="https://www.facebook.com/nufeelpropertyservices/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <div class="footer__col">
+        <span>Areas</span><span>Mandurah</span><span>Rockingham</span><span>Armadale &amp; Applecross</span><span>Perth to Joondalup</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Nu-Feel Property Services. Rockingham, WA.</span>
+      <span>Site by The Service Edit</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY CTA ============ -->
+<div class="sticky" id="sticky" aria-label="Quick contact">
+  <a class="sticky__call" href="tel:+61432036898" aria-label="Call Luke on 0432 036 898">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    <span>Call</span>
+  </a>
+  <a class="sticky__text" href="sms:+61432036898">Text photos</a>
+  <a class="sticky__quote" href="#quote">Get a price <span aria-hidden="true">→</span></a>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu
+  const overlay = document.getElementById('overlay');
+  const openBtn = document.getElementById('menuOpen');
+  const closeBtn = document.getElementById('menuClose');
+  function openMenu() { overlay.classList.add('open'); overlay.setAttribute('aria-hidden', 'false'); openBtn.setAttribute('aria-expanded', 'true'); document.body.classList.add('locked'); setTimeout(() => closeBtn.focus(), 100); }
+  function closeMenu() { overlay.classList.remove('open'); overlay.setAttribute('aria-hidden', 'true'); openBtn.setAttribute('aria-expanded', 'false'); document.body.classList.remove('locked'); openBtn.focus(); }
+  openBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && overlay.classList.contains('open')) closeMenu(); });
+
+  // Reveal: only elements starting below the fold animate in
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.remove('pre'); io.unobserve(en.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => {
+      if (el.getBoundingClientRect().top > window.innerHeight) { el.classList.add('pre'); io.observe(el); }
+    });
+  }
+
+  // Hero mosaic: tiles turn a quarter as you move across them (desktop only)
+  if (!reduce && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.hero__mosaic .tile:not(.photo)').forEach(t => {
+      let turns = 0;
+      t.addEventListener('mouseenter', () => { turns += 1; t.style.transform = `rotate(${turns * 90}deg)`; });
+    });
+  }
+
+  // Sticky CTA shows between hero and quote form
+  const sticky = document.getElementById('sticky');
+  const hero = document.querySelector('.hero');
+  const quote = document.getElementById('quote');
+  let pastHero = false, atQuote = false;
+  const sync = () => sticky.classList.toggle('on', pastHero && !atQuote);
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; sync(); }, { threshold: 0.05 }).observe(hero);
+  new IntersectionObserver(([e]) => { atQuote = e.isIntersecting; sync(); }, { threshold: 0.15 }).observe(quote);
+
+
+  // Photo picker status
+  const photos = document.getElementById('q-photos');
+  const status = document.getElementById('photoStatus');
+  photos.addEventListener('change', () => {
+    const n = photos.files.length;
+    status.textContent = n ? `${n} photo${n > 1 ? 's' : ''} attached` : 'Two or three is plenty';
+  });
+
+  // Form: placeholder submit. Wire to a form backend that accepts file attachments before launch.
+  const form = document.getElementById('quoteForm');
+  const msg = document.getElementById('formMsg');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = form.querySelector('#q-name');
+    const phone = form.querySelector('#q-phone');
+    if (!name.value.trim() || !phone.value.trim()) {
+      msg.classList.add('err');
+      msg.textContent = 'Add your name and phone number so Luke can text you back.';
+      (name.value.trim() ? phone : name).focus();
+      return;
+    }
+    msg.classList.remove('err');
+    msg.textContent = `Thanks ${name.value.trim().split(' ')[0]}. Luke will text you back with a price.`;
+    form.reset();
+    status.textContent = 'Two or three is plenty';
+  });
+</script>
+
+</body>
+</html>
