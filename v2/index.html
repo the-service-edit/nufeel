@@ -328,6 +328,56 @@
   .reveal { transition: opacity .9s var(--ease), transform .9s var(--ease); }
   .reveal.pre { opacity: 0; transform: translateY(22px); }
   @media (prefers-reduced-motion: reduce) { .reveal, .reveal.pre { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  /* ---------- v2.1: less template, more signwriter ---------- */
+  .gs, .gg, .gb { background: none !important; -webkit-text-fill-color: currentColor; }
+  .gs { color: #DCDDDE; }
+  .gg { color: var(--green-2); }
+  .gb { color: var(--blue-2); }
+  .track { letter-spacing: .14em; }
+  .eyebrow { font-size: .74rem; }
+  .eyebrow .ic { display: none; }
+  .head { display: block; max-width: 980px; margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+  .head h2 { margin-top: .9rem; font-size: clamp(2rem, 4.2vw, 3.6rem); }
+  .head p { margin-top: .9rem; }
+  .hero h1 { letter-spacing: 0; }
+  .board__title { letter-spacing: .16em; }
+  .btn--green, .who__cta, .channel__ic, .chip input:checked + span, .tag--after, .sticky__quote, .sticky__text { background: var(--green-2) !important; }
+  .btn--green:hover { filter: none; background: var(--green-1) !important; }
+  .line::before { background: var(--silver-3); }
+  @media (max-width: 640px) { .line::before { background: var(--silver-3); } }
+
+  /* who: open columns divided by rules, not boxed cards */
+  .who { gap: 0; border-top: 1px solid var(--line); }
+  .who__item { background: none; border: 0; border-radius: 0; padding: 1.75rem 0; }
+  @media (min-width: 900px) {
+    .who__item { padding: 2rem 2rem 2rem 0; }
+    .who__item + .who__item { border-left: 1px solid var(--line); padding-left: 2rem; }
+  }
+  @media (max-width: 899px) { .who__item + .who__item { border-top: 1px solid var(--line); } }
+  .who__item .leafs { border-top: 0; padding-top: .25rem; }
+  .who__cta { border-radius: 0; }
+  .who__cta p { text-transform: none; letter-spacing: 0; font-weight: 700; }
+
+  /* steps: a ruled sequence, not four boxes */
+  .steps { gap: 0; border-top: 1px solid var(--line); }
+  .step { background: none; border: 0; border-radius: 0; padding: 1.6rem 1.5rem 1.6rem 0; }
+  @media (min-width: 1100px) { .step + .step { border-left: 1px solid var(--line); padding-left: 1.5rem; } }
+  @media (max-width: 1099px) { .step { border-bottom: 1px solid var(--line); } }
+  .step h3 { letter-spacing: .04em; font-size: 1.15rem; }
+
+  /* reviews: plain quotes on a rule */
+  .review { background: none; border: 0; border-top: 3px solid var(--green-2); border-radius: 0; padding: 1.5rem 0 0; }
+  .review blockquote::before { display: none; }
+  .review blockquote { font-size: 1.05rem; color: var(--white); }
+  .review figcaption b { letter-spacing: .04em; text-transform: none; font-size: .95rem; }
+  .why__item h3 { letter-spacing: .04em; text-transform: none; font-size: 1.15rem; }
+
+  /* service + board panels: drop the hairline border, keep the black slab */
+  .cat, .board { border: 0; border-radius: 4px; }
+  .who__item h3, .feature__head h2, .cover h2, .contact h2 { letter-spacing: 0; }
+  .form { border: 0; }
+  .field > label, .field > legend, .field > .lbl { letter-spacing: .08em; }
 </style>
 
 <link rel="canonical" href="https://nufeel.theserviceedit.com/v2/" />
