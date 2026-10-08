@@ -378,6 +378,14 @@
   .who__item h3, .feature__head h2, .cover h2, .contact h2 { letter-spacing: 0; }
   .form { border: 0; }
   .field > label, .field > legend, .field > .lbl { letter-spacing: .08em; }
+
+  /* no overlaid tags on photos */
+  .gal__item figcaption { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .pair__img { overflow: visible; aspect-ratio: auto; background: none; border-radius: 0; }
+  .pair__img img { aspect-ratio: 4 / 5; border-radius: var(--r); display: block; }
+  @media (min-width: 720px) { .pair__img img { aspect-ratio: 1; } }
+  .tag, .tag--after { position: static; display: block; background: none !important; color: var(--muted); padding: .7rem 0 0; border-radius: 0; font-size: .72rem; }
+  .tag--after { color: var(--green-1); }
 </style>
 
 <link rel="canonical" href="https://nufeel.theserviceedit.com/v2/" />
