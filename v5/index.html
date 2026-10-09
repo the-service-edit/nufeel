@@ -486,6 +486,10 @@
   @media (min-width:560px){.luke__facts{grid-template-columns:1fr 1fr;column-gap:1.25rem;}}
   .luke__facts li{font-size:.98rem;}
   .luke__facts .ic{width:1.15rem;height:1.05rem;}
+
+  /* nudge hero content lower */
+  .hero--full{padding-top:calc(10rem + env(safe-area-inset-top,0px));padding-bottom:clamp(5rem,7vw,6.5rem);}
+  @media (max-width:640px){.hero--full{padding-top:calc(8rem + env(safe-area-inset-top,0px));}}
 </style>
 
 <link rel="canonical" href="https://nufeel.theserviceedit.com/v5/" />
