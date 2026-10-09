@@ -299,6 +299,17 @@
   .preview .cap--note{text-align:center;margin-top:26px;font-size:14px;}
   .paynote{display:inline-flex;align-items:center;gap:8px;margin:-12px 0 22px;font-size:12.5px;font-weight:600;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:30px;padding:6px 14px;align-self:flex-start;}
   .paynote .dot{width:5px;height:5px;border-radius:50%;background:var(--cta);flex:none;}
+  .domains{max-width:760px;margin:54px auto 0;}
+  .domains-head{text-align:center;margin-bottom:22px;}
+  .domains-head .lbl{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+  .domains-head p{color:var(--muted);font-size:14.5px;margin-top:8px;}
+  .domain-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+  @media(min-width:680px){.domain-grid{grid-template-columns:1fr 1fr;}}
+  .domain{background:#F6F7F6;border:1px solid var(--line);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px;}
+  .domain .dn{font-size:1.15rem;font-weight:700;color:var(--navy);letter-spacing:-.01em;overflow-wrap:anywhere;}
+  .domain p{color:var(--muted);font-size:14.5px;margin:0;}
+  .domain .dp{margin-top:auto;font-size:14px;color:var(--text);}
+  .domain .dp b{color:var(--accent);}
 </style>
 </head>
 <body>
@@ -517,7 +528,25 @@
           <p>Your vacate clean-up as a named package, with a checklist property managers can send straight to landlords. One property manager can mean a steady run of jobs.</p>
         </div>
       </div>
-      <p class="addons-note">You'll also need a <b>domain name</b> (e.g. nufeel.com.au), registered in your name and passed on at cost.</p>
+      <div class="domains">
+        <div class="domains-head">
+          <span class="lbl">Your domain name</span>
+          <p>Paid by you, registered in your name. Both are available now:</p>
+        </div>
+        <div class="domain-grid">
+          <div class="domain">
+            <span class="dn">nufeelps.com.au</span>
+            <p>Short and easy to read off the trailer. Matches your Instagram (@nufeelps) and email.</p>
+            <span class="dp"><b>$0.05</b> first year, then $21.95/yr</span>
+          </div>
+          <div class="domain">
+            <span class="dn">nufeelpropertyservices.com.au</span>
+            <p>Your full business name, exactly as it reads on the trailer.</p>
+            <span class="dp"><b>$0.05</b> first year, then $21.95/yr</span>
+          </div>
+        </div>
+        <p class="addons-note">Prices from GoDaddy. A .com.au needs your ABN to register. For about 10 cents you can grab both and point one at the other.</p>
+      </div>
       <p class="addons-note"><b>You own everything.</b> The website, domain and content belong to you. If you ever choose to stop the care plan, the website remains yours and can be transferred elsewhere.</p>
     </div>
   </div>
