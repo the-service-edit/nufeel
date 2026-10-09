@@ -266,6 +266,37 @@
   .opt-tab:hover{border-color:#fff;}
   .opt-tab.on{background:var(--cta);border-color:var(--cta);color:#000;}
   .preview .cap--note{margin-top:8px;font-size:13px;opacity:.8;}
+
+  /* ---------- White proposal ---------- */
+  :root{--bg:#FFFFFF;--surface:#FFFFFF;}
+  body{background:#fff;}
+  .hero{background:#fff;color:var(--text);}
+  .hero h1{color:var(--navy);}
+  .hero p{color:var(--muted);}
+  .hero .eyebrow{color:var(--accent);}
+  .hero .btn-ghost{color:var(--navy);border-color:var(--navy);}
+  .hero .btn-ghost:hover{background:var(--navy);color:#fff;}
+  .preview .cap,.preview figcaption{color:var(--muted);}
+  .preview a{color:var(--navy);border-bottom:1px solid var(--cta);}
+  .browser{border-color:var(--line);box-shadow:0 24px 50px -24px rgba(0,0,0,.35);}
+  .nf-swoosh{background:#fff;}
+  .why{background:#fff;color:var(--text);border-top:1px solid var(--line);}
+  .why h2{color:var(--navy);}
+  .why p{color:var(--muted);}
+  .offer,.jobsheet,.proof,.assure,.final,.signals .chip{background:#fff;}
+  .trust-card,.addon,.quote-card,.assure-card,.card:not(.feature){background:#F6F7F6;}
+  /* side-by-side options */
+  .preview{max-width:1240px;margin-left:auto;margin-right:auto;}
+  .opts{display:grid;gap:28px;grid-template-columns:1fr;}
+  @media(min-width:860px){.opts{grid-template-columns:1fr 1fr;}}
+  .opt{margin:0;text-align:left;}
+  .opt__head{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
+  .opt__tag{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+  .opt__name{font-size:1.1rem;font-weight:700;color:var(--navy);}
+  .opt .browser{max-width:none;border-radius:12px;}
+  .opt .screen iframe{transform-origin:top left;}
+  .opt figcaption{margin-top:12px;font-size:14px;line-height:1.5;}
+  .preview .cap--note{text-align:center;margin-top:26px;font-size:14px;}
 </style>
 </head>
 <body>
@@ -307,26 +338,29 @@
     </div>
 
     <div class="preview reveal d3" id="options">
-      <div class="opt-tabs" role="tablist" aria-label="Website options">
-        <button class="opt-tab on" role="tab" aria-selected="true" data-src="https://nufeel.theserviceedit.com/v4/" data-cap="a">Option A · Side by side</button>
-        <button class="opt-tab" role="tab" aria-selected="false" data-src="https://nufeel.theserviceedit.com/v5/" data-cap="b">Option B · Full-screen photo</button>
+      <div class="opts">
+        <figure class="opt">
+          <div class="opt__head"><span class="opt__tag">Option A</span><span class="opt__name">Side by side</span></div>
+          <div class="browser">
+            <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">nufeel.theserviceedit.com/v4</span></div>
+            <div class="screen"><iframe src="https://nufeel.theserviceedit.com/v4/" loading="lazy" title="Nu-Feel website Option A"></iframe></div>
+          </div>
+          <figcaption>The headline sits beside Luke’s photo. Customers can text Luke photos or use the form. <a href="https://nufeel.theserviceedit.com/v4/" target="_blank" rel="noopener">Open full screen →</a></figcaption>
+        </figure>
+        <figure class="opt">
+          <div class="opt__head"><span class="opt__tag">Option B</span><span class="opt__name">Full-screen photo</span></div>
+          <div class="browser">
+            <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="url">nufeel.theserviceedit.com/v5</span></div>
+            <div class="screen"><iframe src="https://nufeel.theserviceedit.com/v5/" loading="lazy" title="Nu-Feel website Option B"></iframe></div>
+          </div>
+          <figcaption>A full-screen photo with the headline over it, and every enquiry goes through the photo form. <a href="https://nufeel.theserviceedit.com/v5/" target="_blank" rel="noopener">Open full screen →</a></figcaption>
+        </figure>
       </div>
-      <div class="browser">
-        <div class="bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="url" id="optUrl">nufeel.theserviceedit.com/v4</span>
-        </div>
-        <div class="screen">
-          <iframe id="optFrame" src="https://nufeel.theserviceedit.com/v4/" loading="lazy" title="Nu-Feel website preview"></iframe>
-        </div>
-      </div>
-      <p class="cap" data-cap="a">Option A: the headline sits beside Luke’s photo. Customers can text Luke photos or use the form. <a href="https://nufeel.theserviceedit.com/v4/" target="_blank" rel="noopener">Open Option A full screen →</a></p>
-      <p class="cap" data-cap="b" hidden>Option B: a full-screen photo with the headline over it, and every enquiry goes through the photo form. <a href="https://nufeel.theserviceedit.com/v5/" target="_blank" rel="noopener">Open Option B full screen →</a></p>
       <p class="cap cap--note">Both are working drafts built from your trailer branding and your own photos. Pick the one that feels most like Nu-Feel, and we’ll refine it together.</p>
     </div>
   </div>
 </section>
-<svg class="nf-swoosh" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V20C1100 6 760 54 420 52S120 30 0 44Z" fill="#000"/><path d="M0 58C130 42 420 64 760 58S1180 18 1440 30" fill="none" stroke="#5AB445" stroke-width="9"/><path d="M0 50C120 34 420 56 760 50S1180 10 1440 22" fill="none" stroke="#0AACE0" stroke-width="3"/><path d="M0 44C120 28 420 50 760 44S1180 4 1440 16" fill="none" stroke="#fff" stroke-width="2"/></svg>
+<svg class="nf-swoosh" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V20C1100 6 760 54 420 52S120 30 0 44Z" fill="#fff"/><path d="M0 58C130 42 420 64 760 58S1180 18 1440 30" fill="none" stroke="#5AB445" stroke-width="9"/><path d="M0 50C120 34 420 56 760 50S1180 10 1440 22" fill="none" stroke="#0AACE0" stroke-width="3"/><path d="M0 44C120 28 420 50 760 44S1180 4 1440 16" fill="none" stroke="#fff" stroke-width="2"/></svg>
 
 <!-- WHY IT WINS WORK -->
 <section class="trust">
@@ -621,13 +655,8 @@
 </script>
 <script>
 (function(){
-  var tabs=document.querySelectorAll('.opt-tab'),f=document.getElementById('optFrame'),u=document.getElementById('optUrl');
-  tabs.forEach(function(t){t.addEventListener('click',function(){
-    tabs.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false');});
-    t.classList.add('on');t.setAttribute('aria-selected','true');
-    f.src=t.dataset.src;u.textContent=t.dataset.src.replace('https://','').replace(/\/$/,'');
-    document.querySelectorAll('.preview .cap[data-cap]').forEach(function(c){c.hidden=c.dataset.cap!==t.dataset.cap;});
-  });});
+  function fit(){document.querySelectorAll('.opt .screen').forEach(function(sc){var f=sc.querySelector('iframe');f.style.transform='scale('+(sc.clientWidth/1320)+')';});}
+  fit();window.addEventListener('resize',fit);
 })();
 </script>
 </body>
