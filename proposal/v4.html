@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Proposal: Nu-Feel Property Services × The Service Edit</title>
@@ -14,7 +14,7 @@
     --muted:#5F6463; --on-navy:rgba(255,255,255,0.74);
     --accent:#3A9A3E; --line:rgba(17,19,18,0.12); --line-on:rgba(255,255,255,0.16);
     --maxw:1100px; --ease:cubic-bezier(0.22,1,0.36,1);
-    --font:'Montserrat','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --font:'Geist','Helvetica Neue',Helvetica,Arial,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
@@ -221,57 +221,44 @@
 .js-img img{width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 24px 60px rgba(21,38,59,.18);border:1px solid var(--line);}
 .js-img figcaption{font-size:13px;color:var(--muted);margin-top:12px;text-align:center;}
 
-  /* ---------- The Service Edit skin (theserviceedit.com) ---------- */
-  :root{
-    --bg:#F1EDE2; --surface:#F7F4EC; --white:#FFFFFF;
-    --navy:#1B1512; --navy-2:#3A2E25; --text:#1B1512; --muted:#6E6257; --accent:#8C7F72;
-    --cta:#1B1512; --line:rgba(27,21,18,.12); --line-on:rgba(241,237,226,.16); --on-navy:rgba(241,237,226,.74);
-    --brown:#584638; --brown-deep:#3A2E25; --off:#F1EDE2;
-    --font:'Geist','Helvetica Neue',Helvetica,Arial,sans-serif;
-  }
-  body{font-family:var(--font);background:var(--bg);color:var(--text);}
-  h1,h2,h3,h4{font-family:var(--font);font-weight:600;letter-spacing:-0.035em;line-height:.98;}
-  h1,h2{text-transform:uppercase;}
-  h3,h4{letter-spacing:-0.02em;line-height:1.15;}
-  .eyebrow{font-weight:500;letter-spacing:.14em;color:var(--accent);}
-  .btn{border-radius:999px;font-weight:500;padding:14px 26px;}
-  .btn-navy{background:var(--navy);color:var(--off);}
-  .btn-navy:hover{background:var(--brown-deep);}
-  .btn-ghost{border-color:var(--navy);color:var(--navy);}
-  header{background:rgba(58,46,37,.96);border-bottom:1px solid var(--line-on);}
-  .nav .tag{color:rgba(241,237,226,.7);}
-  .brand{display:flex;align-items:center;gap:16px;color:var(--off);}
-  .tse{font-weight:700;font-size:13px;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;text-align:center;color:var(--off);}
-  .brand .x{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,237,226,.6);padding-left:16px;border-left:1px solid var(--line-on);}
-  header .btn-navy{background:transparent;border:1px solid rgba(241,237,226,.8);color:var(--off);}
-  header .btn-navy:hover{background:var(--off);color:var(--navy);}
+  /* ---------- Nu-Feel skin: trailer black + grey, green CTAs ---------- */
+  h1,h2,h3,h4{font-weight:800;letter-spacing:-0.01em;}
+  .btn-navy{background:var(--cta);color:#000;font-weight:700;border-radius:999px;}
+  .btn-navy:hover{background:var(--cta-2);}
+  .btn-ghost{border-radius:999px;font-weight:700;}
+  header{background:rgba(0,0,0,.95);border-bottom:1px solid rgba(255,255,255,.08);}
+  .nav .tag{color:rgba(255,255,255,.62);}
+  .brand{display:flex;align-items:center;gap:14px;color:#fff;}
+  .nf-logo{display:inline-flex;align-items:center;gap:10px;}
+  .nf-logo .m{width:34px;height:30px;color:var(--silver);}
+  .nf-logo .w{display:flex;flex-direction:column;}
+  .nf-logo .w svg:first-child{width:118px;height:22px;color:#E6E7E8;}
+  .nf-logo .w svg:last-child{width:91px;height:6.5px;margin-top:4px;color:var(--silver);}
+  .brand .x{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);padding-left:14px;border-left:1px solid rgba(255,255,255,.18);}
   @media(max-width:640px){.brand .x{display:none;}}
-  .hero{background:linear-gradient(180deg,#6E5C4F 0%,#584638 55%,#3A2E25 100%);color:var(--off);padding:96px 0 80px;}
-  .hero h1{color:var(--off);font-size:clamp(2.6rem,7vw,5.6rem);}
-  .hero h1 .g{color:#D9CBB8;}
-  .hero p{color:rgba(241,237,226,.8);}
-  .hero .eyebrow{color:rgba(241,237,226,.8);}
-  .hero .btn-navy{background:var(--off);color:var(--navy);}
-  .hero .btn-navy:hover{background:#fff;}
-  .hero .btn-ghost{color:var(--off);border-color:rgba(241,237,226,.7);}
-  .hero .btn-ghost:hover{background:var(--off);color:var(--navy);}
-  .browser{border-color:rgba(241,237,226,.14);box-shadow:0 30px 70px -20px rgba(0,0,0,.55);}
-  .preview .cap{color:rgba(241,237,226,.7);}
-  .preview .cap a{color:var(--off);border-bottom-color:rgba(241,237,226,.6);}
-  .trust-card,.assure-card,.addon,.quote-card,.card{background:var(--white);border:1px solid var(--line);border-radius:14px;}
-  .trust-card .ico,.assure-card .ico{background:var(--navy);color:var(--off);border-radius:50%;}
-  .card.feature{background:var(--brown-deep);color:var(--off);border-color:var(--brown-deep);}
-  .card.feature h3,.card.feature .amt{color:var(--off);}
-  .card.feature .kicker,.card.feature li svg{color:#D9CBB8;}
-  .card .kicker,.card li svg,.page-row .n,.js-list svg,.step .n,.quote-card .stat,.quote-card .stars,.addons-head .lbl,.founder .fname{color:var(--accent);}
-  .optnote .dot{background:var(--accent);}
-  .why{background:var(--brown-deep);}
-  .why .eyebrow{color:rgba(241,237,226,.7);}
-  .why h2{color:var(--off);}
-  .final .eyebrow{color:var(--accent);}
-  .signals .chip{background:var(--white);}
-  footer{background:var(--brown-deep);color:rgba(241,237,226,.7);}
-  footer .brand{color:var(--off);justify-content:center;}
+  .hero{background:#000;color:#fff;padding:90px 0 70px;}
+  .hero h1{color:#fff;}
+  .hero h1 .g{color:var(--cta);}
+  .hero p{color:rgba(255,255,255,.72);}
+  .hero .eyebrow{color:var(--cta);}
+  .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.6);}
+  .hero .btn-ghost:hover{background:#fff;color:#000;}
+  .browser{border-color:rgba(255,255,255,.12);box-shadow:0 30px 70px -20px rgba(0,0,0,.8);}
+  .preview .cap{color:rgba(255,255,255,.6);}
+  .preview .cap a{color:#fff;border-bottom-color:var(--cta);}
+  .nf-swoosh{display:block;width:100%;height:clamp(40px,5vw,70px);background:var(--bg);}
+  .trust-card .ico{background:var(--cta);color:#000;border-radius:50%;}
+  .card.feature .kicker,.why .eyebrow,.final .eyebrow{color:var(--cta);}
+  .card.feature li svg{color:var(--cta);}
+  .card .kicker{color:var(--accent);}
+  .why{background:#000;}
+  .page-row .n{color:var(--accent);}
+  .js-list svg{color:var(--accent);}
+  footer .brand{color:#fff;}
+  /* The Service Edit type + logo */
+  body{font-family:var(--font);}
+  h1,h2,h3,h4{font-family:var(--font);font-weight:700;letter-spacing:-0.03em;}
+  .tse{font-weight:700;font-size:13px;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;text-align:center;color:#fff;}
 </style>
 </head>
 <body>
@@ -326,6 +313,7 @@
     </div>
   </div>
 </section>
+<svg class="nf-swoosh" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1440V20C1100 6 760 54 420 52S120 30 0 44Z" fill="#000"/><path d="M0 58C130 42 420 64 760 58S1180 18 1440 30" fill="none" stroke="#5AB445" stroke-width="9"/><path d="M0 50C120 34 420 56 760 50S1180 10 1440 22" fill="none" stroke="#0AACE0" stroke-width="3"/><path d="M0 44C120 28 420 50 760 44S1180 4 1440 16" fill="none" stroke="#fff" stroke-width="2"/></svg>
 
 <!-- WHY IT WINS WORK -->
 <section class="trust">
