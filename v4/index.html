@@ -453,6 +453,20 @@
   /* Hero photo only: no services panel (the list lives in Services below) */
   .hero .board{background:none;border-radius:0;}
   .hero .board .shot{min-height:clamp(440px,44vw,640px);border-radius:4px;background:var(--black);}
+
+  /* Full-width hero: Luke's photo behind centred text */
+  .hero--full{position:relative;overflow:hidden;min-height:min(94vh,920px);display:flex;align-items:center;padding:calc(7rem + env(safe-area-inset-top,0px)) 0 clamp(7rem,12vw,10rem);text-align:center;}
+  .hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;}
+  .hero__shade{position:absolute;inset:0;background:radial-gradient(ellipse 60% 55% at 50% 52%,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 100%),linear-gradient(180deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.55) 35%,rgba(0,0,0,.66) 62%,rgba(0,0,0,.9) 100%);}
+  .hero__inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
+  .hero--full h1{font-size:clamp(2.8rem,7.4vw,7rem);text-shadow:0 2px 30px rgba(0,0,0,.35);}
+  .hero--full .hero__sub{margin-inline:auto;color:#fff;font-weight:600;max-width:44ch;font-size:clamp(1.08rem,1.4vw,1.25rem);text-shadow:0 1px 3px rgba(0,0,0,.6),0 2px 18px rgba(0,0,0,.55);}
+  .hero--full .proof{text-shadow:0 1px 3px rgba(0,0,0,.7);} .hero--full .proof span{color:rgba(255,255,255,.9);}
+  .hero--full .hero__ctas{justify-content:center;}
+  .hero--full .btn--line{border-color:rgba(255,255,255,.75);color:#fff;background:rgba(0,0,0,.25);}
+  .hero--full .proof{justify-content:center;border-top-color:rgba(255,255,255,.22);color:rgba(255,255,255,.8);}
+  .hero__swoosh{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:clamp(54px,7vw,96px);z-index:2;}
+  @media (max-width:640px){.hero--full{min-height:auto;padding-top:calc(6.5rem + env(safe-area-inset-top,0px));}.hero__bg{object-position:54% 50%;}}
 </style>
 
 <link rel="canonical" href="https://nufeel.theserviceedit.com/v4/" />
@@ -529,12 +543,12 @@
 <main id="main">
 
   <!-- ============ HERO ============ -->
-  <section class="hero" id="top" aria-label="Introduction">
-    <div class="wrap hero__grid">
-      <div class="hero__copy">
+  <section class="hero hero--full" id="top" aria-label="Introduction">
+    <img class="hero__bg" src="../images/hero-luke-wide.jpg" alt="Luke mowing a front lawn with a reel mower" fetchpriority="high" />
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="wrap hero__inner">
         <span class="eyebrow track gs"><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg>Rockingham-based property maintenance</span>
         <h1 class="h"><span class="gs">One call for the</span><span class="gg">whole property.</span></h1>
-        <div class="shot hero__photo"><svg class="swoosh" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H600V22C480 12 380 70 250 82S70 78 0 96Z" fill="#000"/><path d="M0 104C80 86 150 92 250 88S480 22 600 30" fill="none" stroke="url(#b-mix)" stroke-width="13"/><path d="M0 96C70 78 150 86 250 82S480 14 600 22" fill="none" stroke="#fff" stroke-width="3"/></svg><img src="../images/hero-luke.jpg" alt="Luke mowing a front lawn with a reel mower" loading="lazy" /></div>
         <p class="hero__sub">Gardens, mowing, tree lopping, pressure cleaning and the odd jobs. Homes, rentals, strata and commercial, Mandurah to Joondalup.</p>
         <div class="hero__ctas">
           <a href="sms:+61432036898" class="btn btn--green"><span>Text Luke photos</span><span class="arw" aria-hidden="true">→</span></a>
@@ -545,12 +559,8 @@
           <span><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg><b>Luke quotes it</b> and does the job</span>
           <span><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg><b>Rockingham</b> base</span>
         </div>
-      </div>
-
-      <aside class="board" aria-label="Luke on the job">
-        <div class="shot "><svg class="swoosh" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H600V22C480 12 380 70 250 82S70 78 0 96Z" fill="#000"/><path d="M0 104C80 86 150 92 250 88S480 22 600 30" fill="none" stroke="url(#b-mix)" stroke-width="13"/><path d="M0 96C70 78 150 86 250 82S480 14 600 22" fill="none" stroke="#fff" stroke-width="3"/></svg><img src="../images/hero-luke.jpg" alt="Luke mowing a front lawn with a reel mower" loading="lazy" /></div>
-      </aside>
     </div>
+    <svg class="hero__swoosh" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120H600V22C480 12 380 70 250 82S70 78 0 96Z" fill="#0B0C0C"/><path d="M0 104C80 86 150 92 250 88S480 22 600 30" fill="none" stroke="url(#b-mix)" stroke-width="13"/><path d="M0 96C70 78 150 86 250 82S480 14 600 22" fill="none" stroke="#fff" stroke-width="3"/></svg>
   </section>
 
   <!-- ============ SERVICES ============ -->
