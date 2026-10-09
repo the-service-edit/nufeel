@@ -261,6 +261,11 @@
   .tse{font-weight:700;font-size:13px;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase;text-align:center;color:#fff;}
   .trust .lead{margin-bottom:22px;}
   .stance{max-width:640px;margin:0 auto 56px;font-size:clamp(1.15rem,1.8vw,1.4rem);font-weight:700;line-height:1.35;color:var(--navy);letter-spacing:-.01em;text-wrap:balance;}
+  .opt-tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+  .opt-tab{font:inherit;font-size:14px;font-weight:600;padding:11px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#fff;background:transparent;cursor:pointer;transition:all .3s;}
+  .opt-tab:hover{border-color:#fff;}
+  .opt-tab.on{background:var(--cta);border-color:var(--cta);color:#000;}
+  .preview .cap--note{margin-top:8px;font-size:13px;opacity:.8;}
 </style>
 </head>
 <body>
@@ -298,20 +303,26 @@
     <p class="reveal d2">Your new signage is about to be seen from Mandurah to Joondalup. Here's what it takes to finish the site you've seen, make it yours, and turn the people who spot the trailer into jobs on your phone, without relying on Facebook.</p>
     <div class="hero-cta reveal d3">
       <a href="#offer" class="btn btn-navy">See the offer</a>
-      <a href="https://nufeel.theserviceedit.com/v4/" target="_blank" rel="noopener" class="btn btn-ghost">See the working draft →</a>
+      <a href="#options" class="btn btn-ghost">See both options ↓</a>
     </div>
 
-    <div class="preview reveal d3">
+    <div class="preview reveal d3" id="options">
+      <div class="opt-tabs" role="tablist" aria-label="Website options">
+        <button class="opt-tab on" role="tab" aria-selected="true" data-src="https://nufeel.theserviceedit.com/v4/" data-cap="a">Option A · Side by side</button>
+        <button class="opt-tab" role="tab" aria-selected="false" data-src="https://nufeel.theserviceedit.com/v5/" data-cap="b">Option B · Full-screen photo</button>
+      </div>
       <div class="browser">
         <div class="bar">
           <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="url">nufeel.theserviceedit.com · preview</span>
+          <span class="url" id="optUrl">nufeel.theserviceedit.com/v4</span>
         </div>
         <div class="screen">
-          <iframe src="https://nufeel.theserviceedit.com/v4/" loading="lazy" title="Nu-Feel website preview"></iframe>
+          <iframe id="optFrame" src="https://nufeel.theserviceedit.com/v4/" loading="lazy" title="Nu-Feel website preview"></iframe>
         </div>
       </div>
-      <p class="cap">A working draft of your homepage, built to match the new trailer. We refine it together until it feels unmistakably Nu-Feel. <a href="https://nufeel.theserviceedit.com/v4/" target="_blank" rel="noopener">Open it full screen →</a></p>
+      <p class="cap" data-cap="a">Option A: the headline sits beside Luke’s photo. Customers can text Luke photos or use the form. <a href="https://nufeel.theserviceedit.com/v4/" target="_blank" rel="noopener">Open Option A full screen →</a></p>
+      <p class="cap" data-cap="b" hidden>Option B: a full-screen photo with the headline over it, and every enquiry goes through the photo form. <a href="https://nufeel.theserviceedit.com/v5/" target="_blank" rel="noopener">Open Option B full screen →</a></p>
+      <p class="cap cap--note">Both are working drafts built from your trailer branding and your own photos. Pick the one that feels most like Nu-Feel, and we’ll refine it together.</p>
     </div>
   </div>
 </section>
@@ -607,6 +618,17 @@
   scalePreview();
   window.addEventListener('load',scalePreview);
   window.addEventListener('resize',scalePreview);
+</script>
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.opt-tab'),f=document.getElementById('optFrame'),u=document.getElementById('optUrl');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false');});
+    t.classList.add('on');t.setAttribute('aria-selected','true');
+    f.src=t.dataset.src;u.textContent=t.dataset.src.replace('https://','').replace(/\/$/,'');
+    document.querySelectorAll('.preview .cap[data-cap]').forEach(function(c){c.hidden=c.dataset.cap!==t.dataset.cap;});
+  });});
+})();
 </script>
 </body>
 </html>
