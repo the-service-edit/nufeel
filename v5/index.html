@@ -480,6 +480,12 @@
 
   /* Full-screen hero */
   .hero--full{min-height:100vh;min-height:100svh;padding:calc(6rem + env(safe-area-inset-top,0px)) 0 clamp(6rem,9vw,8rem);}
+
+  .luke__copy p + p{margin-top:-.2rem;}
+  .luke__facts{margin-top:.2rem;display:grid;grid-template-columns:1fr;gap:.55rem;}
+  @media (min-width:560px){.luke__facts{grid-template-columns:1fr 1fr;column-gap:1.25rem;}}
+  .luke__facts li{font-size:.98rem;}
+  .luke__facts .ic{width:1.15rem;height:1.05rem;}
 </style>
 
 <link rel="canonical" href="https://nufeel.theserviceedit.com/v5/" />
@@ -569,8 +575,7 @@
         </div>
         <div class="proof">
           <span><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg><b>6 of 6</b> Facebook reviews recommend</span>
-          <span><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg><b>Luke quotes it</b> and does the job</span>
-          <span><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg><b>Rockingham</b> base</span>
+          <span><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg><b>Mandurah to Joondalup</b></span>
         </div>
     </div>
     <svg class="hero__swoosh" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120H600V22C480 12 380 70 250 82S70 78 0 96Z" fill="#0B0C0C"/><path d="M0 104C80 86 150 92 250 88S480 22 600 30" fill="none" stroke="url(#b-mix)" stroke-width="13"/><path d="M0 96C70 78 150 86 250 82S480 14 600 22" fill="none" stroke="#fff" stroke-width="3"/></svg>
@@ -627,8 +632,9 @@
       <div class="luke__copy reveal">
         <span class="eyebrow track gg"><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg>Who you’re dealing with</span>
         <h2 class="h h--s gs">Luke runs Nu-Feel, and he’s on the job.</h2>
-        <p>You send Luke the photos, Luke prices it, and Luke turns up to do it. Reviewers name him and his brother Jake: on time, careful, and the mess leaves on the trailer.</p>
-        <span class="todo">Draft: swap in a few lines from Luke, in his own words. What jobs he takes on and how he works.</span>
+        <p>Nu-Feel is a Rockingham business run by Luke. He looks after homes, rentals, strata and commercial sites from Mandurah to Joondalup, from garden clean-ups and mowing to tree lopping, pressure cleaning and the odd jobs most people keep putting off.</p>
+        <p>Luke prices every job himself, and he’s there doing it, often with his brother Jake. It’s what customers mention most in their reviews: they turn up on time, take care with the work, and leave the place tidy. Ask Luke how to keep the garden looking good between visits and he’ll tell you.</p>
+        <span class="todo">Placeholder: put together from Nu-Feel’s Facebook page and reviews. This will be replaced with Luke’s own story: how he started, how long he’s been on the tools and the jobs he enjoys most.</span>
         <a href="#quote" class="btn btn--green"><span>Send photos for a quote</span><span class="arw" aria-hidden="true">→</span></a>
       </div>
     </div>
@@ -655,7 +661,7 @@
         <div class="who__item reveal">
           <span class="track">Strata &amp; commercial</span>
           <h3 class="h h--s gs">Common areas that stay tidy.</h3>
-          <p>Scheduled mowing, verges and garden beds for strata and commercial sites, plus block clear-outs. You deal with Luke every time.</p>
+          <p>Scheduled mowing, verges and garden beds for strata and commercial sites, plus block clear-outs.</p>
         </div>
       </div>
       <div class="who__cta reveal">
@@ -695,7 +701,7 @@
       <div class="head reveal">
         <div><span class="eyebrow track gg"><svg class="ic ic--leaf" aria-hidden="true"><use href="#leaf"/></svg>Recent jobs</span></div>
         <div>
-          <h2 class="h h--s gs">Three recent jobs, start to finish.</h2>
+          <h2 class="h h--s gs">A few recent Nu-Feel jobs.</h2>
           <p>Every photo on this site is a Nu-Feel job, taken by Luke and the crew.</p>
         </div>
       </div>
@@ -804,7 +810,7 @@
         <div class="why__item reveal"><h3>Turned up on time</h3><p>And worked until the job was done, not until the clock said so.</p></div>
         <div class="why__item reveal"><h3>Cleaned up after</h3><p>The paving gets swept and the green waste goes with us.</p></div>
         <div class="why__item reveal"><h3>Tips to keep it that way</h3><p>Ask Luke how to keep a lawn or hedge looking right between visits. He’ll tell you.</p></div>
-        <div class="why__item reveal"><h3>Owner on site</h3><p>Luke quotes the job, and he’s on site doing it.</p></div>
+        <div class="why__item reveal"><h3>Courteous to deal with</h3><p>In one customer’s words: “very courteous to deal with. A rarity these days.”</p></div>
       </div>
       <div class="reviews">
         <figure class="review review--blue reveal">
